@@ -8,10 +8,19 @@ data class Shipment(
     var expectedDeliveryDateTimestamp: Long,
     var currentLocation: String
 ) {
-    private var _shippingUpdates = mutableListOf<shippingUpdate>()
+    private var _updateHistory = mutableListOf<shippingUpdate>()
 
     val shippingUpdates: List<shippingUpdate>
         get() {
-            return _shippingUpdates.toList()
+            return _updateHistory.toList()
         }
+    fun addNote(note: String) {
+        notes = notes + "\n\n" + note
+    }
+    fun addUpdate(update: String) {
+        // How does long work here
+        var newUpdate = shippingUpdate("reference for last update", update, 100)
+        updateHistory.add(newUpdate)
+    }
+
 }
