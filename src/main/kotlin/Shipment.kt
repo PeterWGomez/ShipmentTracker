@@ -18,7 +18,7 @@ data class Shipment(
         notes = notes + "\n\n" + note
     }
     fun addUpdate(update: String) {
-        // How does long work here
+        // How does long work here, update
         var newUpdate = shippingUpdate("reference for last update", update, 100)
         updateHistory.add(newUpdate)
     }
