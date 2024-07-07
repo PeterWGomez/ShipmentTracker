@@ -8,7 +8,10 @@ data class Shipment(
     var expectedDeliveryDateTimestamp: Long,
     var currentLocation: String
 ) {
-    fun getPoint(){
-        println("hi")
-    }
+    private var _shippingUpdates = mutableListOf<shippingUpdate>()
+
+    val shippingUpdates: List<shippingUpdate>
+        get() {
+            return _shippingUpdates.toList()
+        }
 }
